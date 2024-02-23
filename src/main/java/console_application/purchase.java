@@ -48,8 +48,8 @@ int invoice_id = 0;
         int total_amount=0;
 
         do{
-            System.out.println(" ");
-            System.out.println("1.purchasing ");
+           // System.out.println(" ");
+          //  System.out.println("1.purchasing ");
         System.out.println("2.exit  ");
         Scanner sc=new Scanner(System.in);
         System.out.println("enter");
