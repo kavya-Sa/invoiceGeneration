@@ -13,10 +13,11 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class invoiceGeneration extends HttpServlet {
-   protected  void doGet(HttpServletRequest req,HttpServletResponse res){Scanner sc=new Scanner(System.in);
+   protected  void doGet(HttpServletRequest req,HttpServletResponse res){
+      Scanner sc=new Scanner(System.in);
 
 
 }}
 
 
-}
+
