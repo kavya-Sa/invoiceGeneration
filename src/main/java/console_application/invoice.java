@@ -8,24 +8,24 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class invoice {
+boolean flag=true;
 
+        public  void invoicing(int user_id) throws ClassNotFoundException, SQLException {
 
-        public  void invoicing() throws ClassNotFoundException, SQLException {
-
-            Scanner sc = new Scanner(System.in);
-            System.out.println("enter user id for invoice generation");
-            int u=sc.nextInt();
+Scanner sc=new Scanner(System.in);
 
                 System.out.println("enter invoice id:");
                 int n = sc.nextInt();
                 Connection con = DAO.getConnection();
             String sq="SELECT id FROM invoice WHERE customer_id=?";
             PreparedStatement prepared=con.prepareStatement(sq);
-            prepared.setInt(1,u);
+            prepared.setInt(1,user_id);
             ResultSet rs= prepared.executeQuery();
             while(rs.next()) {
                 int id = rs.getInt(1);
+
                 if (id == n) {
+flag=false;
                     String sql = "SELECT customer_id,amount FROM invoice WHERE id=?";
                     PreparedStatement prepare = con.prepareStatement(sql);
                     prepare.setInt(1, n);
@@ -67,10 +67,10 @@ public class invoice {
                     }
 
 
-                } else {
-                      if(!rs.next())
-                          System.out.println("please check your invoice id and user id");
                 }
-           }}
+           }
+            if(!rs.next() && flag==true)
+                System.out.println("please check your invoice id and user id");
+        }
         }
 

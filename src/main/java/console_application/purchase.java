@@ -4,21 +4,17 @@ import java.sql.*;
 import java.util.Scanner;
 public class purchase {
 static boolean flag =true;
-static Scanner sc=new Scanner(System.in);
-int user_id;
-        public purchase(){
-            System.out.println(" ");
-            System.out.println("enter a valid user_id");
-            user_id=sc.nextInt();
-            }
 
-    public  void purchasing() throws SQLException, ClassNotFoundException {
-       validationCheck();
 
-       purchase_items();
+
+
+    public  void purchasing(int user_id) throws SQLException, ClassNotFoundException {
+       validationCheck(user_id);
+
+       purchase_items(user_id);
     }
 
-    public int  id_generation() throws ClassNotFoundException, SQLException {
+    public int  id_generation(int user_id) throws ClassNotFoundException, SQLException {
 Connection con= DAO.getConnection();
         String sqlq="INSERT INTO invoice(customer_id) VALUES (?)";
         PreparedStatement prepare=con.prepareStatement(sqlq,Statement.RETURN_GENERATED_KEYS);
@@ -28,7 +24,7 @@ Connection con= DAO.getConnection();
         generatedKeys.next();
         return generatedKeys.getInt(1);
     }
-    public void validationCheck() throws ClassNotFoundException, SQLException {
+    public void validationCheck(int user_id) throws ClassNotFoundException, SQLException {
 
        String sql="SELECT * FROM public.customers WHERE id=?";
          Connection con = DAO.getConnection();
@@ -47,7 +43,7 @@ Connection con= DAO.getConnection();
 //========================================================================================================
 
     }
-    public void purchase_items() throws ClassNotFoundException, SQLException {
+    public void purchase_items(int user_id) throws ClassNotFoundException, SQLException {
 int invoice_id = 0;
         int total_amount=0;
 
@@ -65,11 +61,9 @@ int invoice_id = 0;
             System.out.println("enter quantity");
 
             int quantity=sc.nextInt();
-            if(product_id==(int)product_id &&  quantity==(int)quantity){
-invoice_id=id_generation();
-            }
-            else{
-                break;
+            if(product_id==(int)product_id &&  quantity==(int)quantity && flag==true){
+invoice_id=id_generation(user_id);
+               flag = false;
             }
                 String sql="SELECT amount FROM public.products WHERE id=?";
                 PreparedStatement prep=con.prepareStatement(sql);

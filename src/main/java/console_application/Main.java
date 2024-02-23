@@ -13,14 +13,18 @@ System.out.println("Enter the service you want:");
 int n=sc.nextInt();
 purchase pa=new purchase();
 invoice i=new invoice();
+        System.out.println(" ");
+        System.out.println("enter a valid user_id");
+        int user_id=sc.nextInt();
 switch(n){
     case 1:
-     pa.purchasing();
-     i.invoicing();
+
+     pa.purchasing(user_id);
+     i.invoicing(user_id);
 
      break;
     case 2:
-        i.invoicing();
+        i.invoicing(user_id);
         break;
     case 3:
         System.out.println("Thank you😇");
