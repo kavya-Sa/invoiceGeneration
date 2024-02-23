@@ -13,10 +13,11 @@ boolean flag=true;
         public  void invoicing(int user_id) throws ClassNotFoundException, SQLException {
 
 Scanner sc=new Scanner(System.in);
-
-                System.out.println("enter invoice id:");
+             //   System.out.println("enter invoice id:");
                 int n = sc.nextInt();
                 Connection con = DAO.getConnection();
+con.setAutoCommit(false);
+
             String sq="SELECT id FROM invoice WHERE customer_id=?";
             PreparedStatement prepared=con.prepareStatement(sq);
             prepared.setInt(1,user_id);
@@ -64,13 +65,14 @@ flag=false;
                         int quantity = rst.getInt(3);
                         int amount = rst.getInt(4);
                         System.out.printf("%-20d %-20s %-10d %-10d%n", product_id, pro_name, quantity, amount);
+                        con.commit();
                     }
 
 
                 }
            }
-           // if(!rs.next() && flag==true){
-                //System.out.println("please check your invoice id and user id");}
-       // }
-        }}
+//            if(!rs.next() && flag==true){
+//                System.out.println("please check your invoice id and user id");}
+      }
+        }
 
