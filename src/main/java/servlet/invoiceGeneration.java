@@ -50,6 +50,8 @@ public class invoiceGeneration extends HttpServlet {
                      customer_id = rstd.getInt(1);
                      total_amount = rstd.getInt(2);
                   }
+                  prepare.close();
+                  prepared.close();
 rstd.close();
 
 //======================================================================================================
@@ -67,6 +69,7 @@ rstd.close();
 //                  out.println("phone_no: "+phone_no);
 
                }
+               prep.close();
 rsd.close();
 
 //=======================================================================================================
@@ -83,7 +86,8 @@ rsd.close();
                   int amount = rst.getInt(4);
                  // out.printf("%-20d %-20s %-10d %-10d%n", product_id, pro_name, quantity, amount);
 
-               }rst.close();
+               }prest.close();
+               rst.close();
               // out.println("total amount:" + total_amount);
 
             }
@@ -92,7 +96,7 @@ rsd.close();
 //            out.println("please check your invoice id and user id");
 //         }
 rs.close();
-
+con.close();
       }catch(Exception e){
          e.printStackTrace();
       }

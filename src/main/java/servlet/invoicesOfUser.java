@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 @WebServlet("/invoices")
-public class invoicesOfAUser extends HttpServlet {
+public class invoicesOfUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
