@@ -71,9 +71,9 @@ flag=false;
 
                 }
            }
-   if(!rs.next() && flag==true){
-          // System.out.println("please check your invoice id or user id");
-       }
+//   if(!rs.next() && flag==true){
+//          // System.out.println("please check your invoice id or user id");
+//       }
       }
         }
 
