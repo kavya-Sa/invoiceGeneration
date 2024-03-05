@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-@WebServlet("/rough")
+//@WebServlet("/rough")
 public class SQLInjection extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res){
 //        try {

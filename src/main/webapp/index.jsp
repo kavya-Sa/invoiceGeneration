@@ -7,7 +7,7 @@
 </head>
 <body>
 <form action="login" method="get">
-    <label >Enter the user id</label>
+    <label  for="userId">Enter the user id</label>
     <input type="text" name="id" ><br>
     <!-- <label >name</label>
     <input type="text" name="name" ><br>
