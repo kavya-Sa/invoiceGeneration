@@ -34,6 +34,8 @@ public class SQLInjection extends HttpServlet {
 
             }
             rs.close();
+            prepare.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

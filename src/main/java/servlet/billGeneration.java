@@ -1,6 +1,5 @@
 package servlet;
 import console_application.purchase;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import console_application.DAO;
 
@@ -11,22 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 import com.google.gson.JsonObject;
 
-import static com.google.gson.JsonParser.*;
-
 @WebServlet("/billing")
-public class bill_generation extends HttpServlet {
+public class billGeneration extends HttpServlet {
     @Override
     protected  void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
@@ -70,6 +65,7 @@ if(flag){
                 prepare.setInt(3, jsonObject.get(product).getAsInt());
                 prepare.setInt(4, amount);
                 prepare.executeUpdate();
+                rs.close();
             }
             String s="UPDATE invoice SET amount=? WHERE id=?";
             PreparedStatement prep=con.prepareStatement(s);
@@ -77,6 +73,7 @@ if(flag){
             prep.setInt(2,invoice_id);
             prep.executeUpdate();
 
+con.close();
 
         }  catch (Exception e) {
             e.printStackTrace();

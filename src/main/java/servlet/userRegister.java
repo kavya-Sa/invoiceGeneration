@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 
 @WebServlet("/new_user")
-public class user_register extends HttpServlet {
+public class userRegister extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         PrintWriter out=res.getWriter();
 String name=req.getParameter("name");

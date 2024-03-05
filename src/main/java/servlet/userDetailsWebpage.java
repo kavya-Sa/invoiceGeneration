@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 @WebServlet("/login")
-public class user_details_webpage  extends HttpServlet {
+public class userDetailsWebpage extends HttpServlet {
 
 
 protected  void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
