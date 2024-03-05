@@ -32,11 +32,11 @@ Connection con= DAO.getConnection();
        prepare.setInt(1,user_id);
        ResultSet rs=prepare.executeQuery();
        if(rs.next()) {
-           System.out.println(rs.getString(2));
-           System.out.println(" ");
+//           System.out.println(rs.getString(2));
+//           System.out.println(" ");
        }
        else{
-           System.out.println("invalid id");
+//           System.out.println("invalid id");
        }
         prepare.close();
         con.close();
@@ -49,17 +49,17 @@ Connection con= DAO.getConnection();
         do{
             int invoice_id = 0;
             int total_amount=0;
-          System.out.println(" ");
-            System.out.println("1.purchasing ");
-        System.out.println("2.exit  ");
-        Scanner sc=new Scanner(System.in);
-        System.out.println("enter");
+//          System.out.println(" ");
+//            System.out.println("1.purchasing ");
+//        System.out.println("2.exit  ");
+       Scanner sc=new Scanner(System.in);
+//        System.out.println("enter");
         int b=sc.nextInt();
             Connection   con = DAO.getConnection();
         if (b==1){
-            System.out.println("enter product_id");
+            //System.out.println("enter product_id");
             int product_id=sc.nextInt();
-            System.out.println("enter quantity");
+           // System.out.println("enter quantity");
 
             int quantity=sc.nextInt();
             if(product_id==(int)product_id &&  quantity==(int)quantity && flag==true){
@@ -95,8 +95,8 @@ Connection con= DAO.getConnection();
             prep.setInt(1,total_amount);
             prep.setInt(2,invoice_id);
           prep.executeUpdate();
-System.out.println("your invoice id is "+invoice_id);
-            System.out.println("Thank you");
+//System.out.println("your invoice id is "+invoice_id);
+//            System.out.println("Thank you");
             break;
         }}while(true);
         }

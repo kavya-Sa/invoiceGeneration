@@ -29,8 +29,8 @@ public class SQLInjection extends HttpServlet {
                 int invoiceId=rs.getInt("id");
                 int amount=rs.getInt("amount");
 
-                out.printf("%-20s %-20s",invoiceId,amount);
-                out.println(" ");
+//                out.printf("%-20s %-20s",invoiceId,amount);
+//                out.println(" ");
 
             }
         } catch (Exception e) {
