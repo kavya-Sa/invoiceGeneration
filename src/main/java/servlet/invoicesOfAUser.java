@@ -33,7 +33,8 @@ String sql="SELECT * FROM public.invoice WHERE  customer_id=?";
             out.printf("%-20s %-20s",invoiceId,amount);
             out.println(" ");
 
-        }
+        }rs.close();
+        con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

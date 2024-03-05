@@ -19,12 +19,12 @@ public class SQLInjection extends HttpServlet {
             PrintWriter out=res.getWriter();
             String userId=req.getParameter("userId");
             String sql="SELECT * FROM public.invoice WHERE  customer_id="+userId;
-            out.println(sql);
+            //out.println(sql);
             Statement prepare=con.createStatement();
 
             ResultSet rs=prepare.executeQuery(sql);
-            out.printf("%-20s %-20s","invoice_id","amount");
-            out.println(" ");
+            //out.printf("%-20s %-20s","invoice_id","amount");
+            //out.println(" ");
             while(rs.next()){
                 int invoiceId=rs.getInt("id");
                 int amount=rs.getInt("amount");
