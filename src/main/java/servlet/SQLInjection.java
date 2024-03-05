@@ -21,7 +21,7 @@ public class SQLInjection extends HttpServlet {
             String sql="SELECT * FROM public.invoice WHERE  customer_id="+userId;
             out.println(sql);
             Statement prepare=con.createStatement();
-            //prepare.setInt(1,userId);
+
             ResultSet rs=prepare.executeQuery(sql);
             out.printf("%-20s %-20s","invoice_id","amount");
             out.println(" ");
@@ -33,6 +33,7 @@ public class SQLInjection extends HttpServlet {
 //                out.println(" ");
 
             }
+            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

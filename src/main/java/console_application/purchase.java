@@ -38,6 +38,7 @@ Connection con= DAO.getConnection();
        else{
 //           System.out.println("invalid id");
        }
+       rs.close();
         prepare.close();
         con.close();
 //========================================================================================================
