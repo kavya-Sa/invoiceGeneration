@@ -37,7 +37,9 @@ flag=false;
                             customer_id = rstd.getInt(1);
                             total_amount = rstd.getInt(2);
                         }
+                        rstd.close();
                     }
+
                     //System.out.println("total amount:" + total_amount);
 //======================================================================================================
                     String s = "SELECT name,address,phone_no FROM customers WHERE id=?";
@@ -49,9 +51,9 @@ flag=false;
                         String name = rsd.getString(1);
                         String address = rsd.getString(2);
                         BigDecimal phone_no = rsd.getBigDecimal(3);
-                        System.out.println(name + address + phone_no);
+                        //System.out.println(name + address + phone_no);
                     }
-
+rsd.close();
 //=======================================================================================================
 
                     String q = "SELECT it.product_id,p.name,it.quantity,it.amount FROM invoice_items AS it JOIN products as p ON it.product_id=p.id WHERE it.invoice_id=?";
@@ -74,6 +76,7 @@ flag=false;
 //   if(!rs.next() && flag==true){
 //          // System.out.println("please check your invoice id or user id");
 //       }
+            rs.close();
       }
         }
 

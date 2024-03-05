@@ -38,7 +38,7 @@ public class invoiceGeneration extends HttpServlet {
 
             if (id == invoice_id) {
 
-               flag = false;
+               //flag = false;
 
                PreparedStatement prepare = con.prepareStatement("SELECT customer_id,amount FROM invoice WHERE id=?");
                prepare.setInt(1, invoice_id);
@@ -50,7 +50,7 @@ public class invoiceGeneration extends HttpServlet {
                      customer_id = rstd.getInt(1);
                      total_amount = rstd.getInt(2);
                   }
-
+rstd.close();
 
 //======================================================================================================
 
@@ -67,7 +67,7 @@ public class invoiceGeneration extends HttpServlet {
 //                  out.println("phone_no: "+phone_no);
 
                }
-
+rsd.next();
 //=======================================================================================================
 
 
@@ -82,13 +82,15 @@ public class invoiceGeneration extends HttpServlet {
                   int amount = rst.getInt(4);
                  // out.printf("%-20d %-20s %-10d %-10d%n", product_id, pro_name, quantity, amount);
 
-               }
-               out.println("total amount:" + total_amount);
+               }rst.close();
+              // out.println("total amount:" + total_amount);
 
             }
          }
-         if (!rs.next() && flag){
-            out.println("please check your invoice id and user id");}
+//         if (!rs.next() && flag){
+//            out.println("please check your invoice id and user id");
+//         }
+rs.close();
 
       }catch(Exception e){
          e.printStackTrace();
