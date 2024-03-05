@@ -4,12 +4,6 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>abc</servlet-name>
-    <jsp-file>/products_list.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>abc</servlet-name>
-    <url-pattern>/products_list</url-pattern>
-  </servlet-mapping>
+
+
 </web-app>

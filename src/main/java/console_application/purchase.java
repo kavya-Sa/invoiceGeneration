@@ -44,13 +44,14 @@ Connection con= DAO.getConnection();
 
     }
     public void purchase_items(int user_id) throws ClassNotFoundException, SQLException {
-int invoice_id = 0;
-        int total_amount=0;
+
 
         do{
-//          System.out.println(" ");
-//            System.out.println("1.purchasing ");
-//        System.out.println("2.exit  ");
+            int invoice_id = 0;
+            int total_amount=0;
+          System.out.println(" ");
+            System.out.println("1.purchasing ");
+        System.out.println("2.exit  ");
         Scanner sc=new Scanner(System.in);
         System.out.println("enter");
         int b=sc.nextInt();
@@ -62,30 +63,31 @@ int invoice_id = 0;
 
             int quantity=sc.nextInt();
             if(product_id==(int)product_id &&  quantity==(int)quantity && flag==true){
-invoice_id=id_generation(user_id);
-               flag = false;
+                invoice_id=id_generation(user_id);
+                flag = false;
             }
-                String sql="SELECT amount FROM public.products WHERE id=?";
-                PreparedStatement prep=con.prepareStatement(sql);
-                prep.setInt(1,product_id);
-                ResultSet rs=prep.executeQuery();
-                int amount = 0;
+            String sql="SELECT amount FROM public.products WHERE id=?";
+            PreparedStatement prep=con.prepareStatement(sql);
+            prep.setInt(1,product_id);
+            ResultSet rs=prep.executeQuery();
+            int amount = 0;
             int price;
-                if(rs.next()){
+            if(rs.next()){
                 price=rs.getInt("amount");
                 amount=price*quantity;
                 System.out.println("amount "+amount);}
-    total_amount=total_amount+amount;
+            total_amount=total_amount+amount;
             String sqlquery="INSERT INTO invoice_items(invoice_id,product_id,quantity,amount) VALUES (?,?,?,?)";
             PreparedStatement prepare=con.prepareStatement(sqlquery);
-                prepare.setInt(1,invoice_id);
-                prepare.setInt(2,product_id);
-                prepare.setInt(3,quantity);
-                prepare.setInt(4,amount);
-                prepare.executeUpdate();
+            prepare.setInt(1,invoice_id);
+            prepare.setInt(2,product_id);
+            prepare.setInt(3,quantity);
+            prepare.setInt(4,amount);
+            prepare.executeUpdate();
             prep.close();
             prepare.close();
             con.close();
+
         }else{
 
             String s="UPDATE invoice SET amount=? WHERE id=?";
@@ -98,6 +100,7 @@ System.out.println("your invoice id is "+invoice_id);
             break;
         }}while(true);
         }
+
     }
 
 

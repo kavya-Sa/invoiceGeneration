@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void  main(String [] args) throws SQLException, ClassNotFoundException {
-//System.out.println("1.purchasing  and invoice generation");
-//System.out.println("2.invoice generation");
-//System.out.println("3.exit ");
+System.out.println("1.purchasing  and invoice generation");
+System.out.println("2.invoice generation");
+System.out.println("3.exit ");
 Scanner sc=new Scanner(System.in);
 System.out.println("Enter the service you want:");
 int n=sc.nextInt();
 purchase pa=new purchase();
 invoice i=new invoice();
-//       System.out.println(" ");
-//       System.out.println("enter a valid user_id");
+       System.out.println(" ");
+       System.out.println("enter a valid user_id");
         int user_id=sc.nextInt();
 switch(n){
     case 1:

@@ -1,26 +1,13 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<style>
-input{
-     display:block;
-     margin-left:auto;
-     margin-right:auto;
-     width:20%;
-     height:5%;
-     font-size:30px;
 
-}
-label{
-
-font-size:50px;
-}</style>
 <head>
     <title>Invoice generation</title>
 </head>
 <body>
 <form action="login" method="get">
-    <label ><center>Enter the user id</center></label>
+    <label >Enter the user id</label>
     <input type="text" name="id" ><br>
     <!-- <label >name</label>
     <input type="text" name="name" ><br>

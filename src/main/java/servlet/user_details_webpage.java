@@ -47,14 +47,14 @@ PrintWriter out=response.getWriter();
     String q="SELECT * FROM public.products";
 
     ResultSet rd=stmt.executeQuery(q);
-        out.printf("%-20s,%-10s,%-10s%n","product_id","product","price");
+        out.printf("%-20s %-10s %-10s%n","product_id","product","price");
         out.println(" ");
     while (rd.next()) {
         int productId = rd.getInt("id");
         String name = rd.getString("name");
         int price = rd.getInt("amount");
 
-        out.printf("%-20d,%-10s,%-10d%n",productId ,name ,price);
+        out.printf("%-20d %-10s %-10d%n",productId ,name ,price);
     }
         rd.close();
         preparedStatement.close();
