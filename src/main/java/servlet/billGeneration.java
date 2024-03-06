@@ -53,7 +53,7 @@ if(flag){
                 if (rs.next()) {
                     price = rs.getInt("amount");
                     amount = price * jsonObject.get(product).getAsInt();
-//                    out.println("amount " + amount);
+                   out.println("amount " + amount);
                 }
                 total_amount = total_amount + amount;
                 String sqlquery = "INSERT INTO invoice_items(invoice_id,product_id,quantity,amount) VALUES (?,?,?,?)";
