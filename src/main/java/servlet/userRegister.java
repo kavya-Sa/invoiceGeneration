@@ -22,8 +22,6 @@ String address=req.getParameter("address");
         try {
             Connection con= DAO.getConnection();
 
-
-
             String sq="SELECT * FROM customers WHERE name=? AND (address=? AND phone_no=?)";
             PreparedStatement stmt = con.prepareStatement(sq);
 stmt.setString(1,name);
