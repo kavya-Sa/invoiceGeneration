@@ -13,7 +13,7 @@ boolean flag=true;
         public  void invoicing(int user_id) throws ClassNotFoundException, SQLException {
 
 Scanner sc=new Scanner(System.in);
-            // System.out.println("enter invoice id:");
+            System.out.println("enter invoice id:");
                 int n = sc.nextInt();
                 Connection con = DAO.getConnection();
 con.setAutoCommit(false);
@@ -40,7 +40,7 @@ flag=false;
                         rstd.close();
                     }
 
-                    //System.out.println("total amount:" + total_amount);
+                    System.out.println("total amount:" + total_amount);
 //======================================================================================================
                     String s = "SELECT name,address,phone_no FROM customers WHERE id=?";
                     PreparedStatement prep = con.prepareStatement(sql);
@@ -51,7 +51,7 @@ flag=false;
                         String name = rsd.getString(1);
                         String address = rsd.getString(2);
                         BigDecimal phone_no = rsd.getBigDecimal(3);
-                        //System.out.println(name + address + phone_no);
+                        System.out.println(name + address + phone_no);
                     }
 rsd.close();
 //=======================================================================================================
@@ -60,22 +60,22 @@ rsd.close();
                     PreparedStatement prest = con.prepareStatement(q);
                     prest.setInt(1, n);
                     ResultSet rst = prest.executeQuery();
-                   // System.out.printf("%-20s %-20s %-10s %-10s%n", "product_id", "product_name", "quantity", "amount");
+                   System.out.printf("%-20s %-20s %-10s %-10s%n", "product_id", "product_name", "quantity", "amount");
                     while (rst.next()) {
                         int product_id = rst.getInt(1);
                         String pro_name = rst.getString(2);
                         int quantity = rst.getInt(3);
                         int amount = rst.getInt(4);
-                        //System.out.printf("%-20d %-20s %-10d %-10d%n", product_id, pro_name, quantity, amount);
+                        System.out.printf("%-20d %-20s %-10d %-10d%n", product_id, pro_name, quantity, amount);
                         con.commit();
                     }
 
 
                 }
            }
-//   if(!rs.next() && flag==true){
-//          // System.out.println("please check your invoice id or user id");
-//       }
+  if(!rs.next() && flag==true){
+         // System.out.println("please check your invoice id or user id");
+      }
             rs.close();
       }
         }
